@@ -28,7 +28,7 @@
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/posts">All Posts</a>
+                            <a class="nav-link" href="/posts/my-first-posts">All Posts</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,14 +59,14 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="/post">Card title</a></h5>
+                            <h5 class="card-title"><a href="/posts/my-first-post">First Post</a></h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the <a href="/post">Card title</a> and make up the bulk of the card's content.
+                            <p class="card-text">Some quick example text to build on the <a href="/posts/my-first-post">First Post</a> and make up the bulk of the card's content.
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae quia saepe harum aliquid voluptates quisquam amet. Eos repudiandae blanditiis repellendus velit corporis, ipsa quam enim magni voluptate necessitatibus eveniet ex.
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste iusto tempore illo est deleniti praesentium libero sunt nihil ut, velit pariatur ea. Architecto nam sed, ad possimus suscipit id deserunt.
                                 lorem
                             </p>
-                            <a href="/post" class="card-link">View Post</a>
+                            <a href="/posts/my-first-post" class="card-link">View Post</a>
 
                         </div>
                     </div>
@@ -74,14 +74,14 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="/post">Card title</a></h5>
+                            <h5 class="card-title"><a href="/posts/my-first-post">Second Post</a></h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the <a href="/post">Card title</a> and make up the bulk of the card's content.
+                            <p class="card-text">Some quick example text to build on the <a href="/posts/my-second-post">Second Post</a> and make up the bulk of the card's content.
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae quia saepe harum aliquid voluptates quisquam amet. Eos repudiandae blanditiis repellendus velit corporis, ipsa quam enim magni voluptate necessitatibus eveniet ex.
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste iusto tempore illo est deleniti praesentium libero sunt nihil ut, velit pariatur ea. Architecto nam sed, ad possimus suscipit id deserunt.
                                 lorem
                             </p>
-                            <a href="/post" class="card-link">View Post</a>
+                            <a href="/posts/my-second-post" class="card-link">View Post</a>
 
                         </div>
                     </div>
@@ -90,14 +90,14 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="/post">Card title</a></h5>
+                            <h5 class="card-title"><a href="/posts/my-third-post">Third Post</a></h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the <a href="/post">Card title</a> and make up the bulk of the card's content.
+                            <p class="card-text">Some quick example text to build on the <a href="/posts/my-third-post">Third Post</a> and make up the bulk of the card's content.
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae quia saepe harum aliquid voluptates quisquam amet. Eos repudiandae blanditiis repellendus velit corporis, ipsa quam enim magni voluptate necessitatibus eveniet ex.
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste iusto tempore illo est deleniti praesentium libero sunt nihil ut, velit pariatur ea. Architecto nam sed, ad possimus suscipit id deserunt.
                                 lorem
                             </p>
-                            <a href="#" class="card-link">View Post</a>
+                            <a href="/posts/my-third-post" class="card-link">View Post</a>
 
                         </div>
                     </div>
@@ -108,14 +108,14 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="/post">Card title</a></h5>
+                            <h5 class="card-title"><a href="/posts/my-fourth-post">Fourth Post</a></h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the <a href="/post">Card title</a> and make up the bulk of the card's content.
+                            <p class="card-text">Some quick example text to build on the <a href="/posts/my-fourth-post">Fourth Post</a> and make up the bulk of the card's content.
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae quia saepe harum aliquid voluptates quisquam amet. Eos repudiandae blanditiis repellendus velit corporis, ipsa quam enim magni voluptate necessitatibus eveniet ex.
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste iusto tempore illo est deleniti praesentium libero sunt nihil ut, velit pariatur ea. Architecto nam sed, ad possimus suscipit id deserunt.
                                 lorem
                             </p>
-                            <a href="#" class="card-link">View Post</a>
+                            <a href="/posts/my-fourth-post" class="card-link">View Post</a>
 
                         </div>
                     </div>
@@ -123,14 +123,14 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="/post">Card title</a></h5>
+                            <h5 class="card-title"><a href="/posts/my-fifth-post">Fifth Post</a></h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the <a href="/post">Card title</a> and make up the bulk of the card's content.
+                            <p class="card-text">Some quick example text to build on the <a href="/posts/my-fifth-post">Fifth Post</a> and make up the bulk of the card's content.
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae quia saepe harum aliquid voluptates quisquam amet. Eos repudiandae blanditiis repellendus velit corporis, ipsa quam enim magni voluptate necessitatibus eveniet ex.
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste iusto tempore illo est deleniti praesentium libero sunt nihil ut, velit pariatur ea. Architecto nam sed, ad possimus suscipit id deserunt.
                                 lorem
                             </p>
-                            <a href="#" class="card-link">View Post</a>
+                            <a href="/posts/my-fifth-post" class="card-link">View Post</a>
 
                         </div>
                     </div>
@@ -139,14 +139,14 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="/post">Card title</a></h5>
+                            <h5 class="card-title"><a href="/posts/my-sixth-post">Sixth Post</a></h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the <a href="/post">Card title</a> and make up the bulk of the card's content.
+                            <p class="card-text">Some quick example text to build on the <a href="/posts/my-sixth-post">First Post</a> and make up the bulk of the card's content.
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae quia saepe harum aliquid voluptates quisquam amet. Eos repudiandae blanditiis repellendus velit corporis, ipsa quam enim magni voluptate necessitatibus eveniet ex.
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste iusto tempore illo est deleniti praesentium libero sunt nihil ut, velit pariatur ea. Architecto nam sed, ad possimus suscipit id deserunt.
                                 lorem
                             </p>
-                            <a href="#" class="card-link">View Post</a>
+                            <a href="/posts/my-sixth-post" class="card-link">View Post</a>
 
                         </div>
                     </div>
