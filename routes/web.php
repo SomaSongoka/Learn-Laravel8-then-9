@@ -15,12 +15,22 @@ use App\Models\FilePosts;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // We need to get All Posts
+    $posts = FilePosts::all();
+
+    // We need to get the first post
+    /**
+     * $posts[0]->getContents();
+     * if we return the contents of the files | File::files(resource_path('posts/'));
+     */
+
+    // dd($posts);
+    // Return the view with variable post
+    return view('posts', [
+        'posts' => $posts
+    ]);
 });
 
-Route::get('posts', function () {
-    return view('posts');
-});
 
 /** Wildcard */
 Route::get('posts/{path}', function ($slug) {
