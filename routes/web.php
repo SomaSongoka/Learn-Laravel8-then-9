@@ -49,4 +49,4 @@ Route::get('posts/{path}', function ($slug) {
     return view('post', [
         'post' => $post
     ]);
-});
+})->where('path', '[A-Za-z0-9-_]+');
