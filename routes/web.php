@@ -21,6 +21,32 @@ Route::get('posts', function () {
     return view('posts');
 });
 
-Route::get('post', function () {
-    return view('post');
+/** Wildcard */
+Route::get('posts/{path}', function ($slug) {
+
+    // File path to the post dir
+    $path = __DIR__ . '/../resources/posts/' . $slug . '.html';
+
+    // Check if post file exists
+    if (!file_exists($path)) {
+        abort(404);
+        /**
+         * We can redirect by : return redirect('/');
+         * 
+         * We can die and dump by : dd($path);
+         * 
+         * We can die and dump using laravel error page by: ddd($path);
+         * 
+         * abourt(403);
+         * abort(403, "You are not allowed to access this page.");
+         */
+    }
+
+    //Set file content to post
+    $post = file_get_contents($path);
+
+    // Return the view with variable post
+    return view('post', [
+        'post' => $post
+    ]);
 });

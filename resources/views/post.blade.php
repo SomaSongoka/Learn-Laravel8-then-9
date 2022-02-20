@@ -60,26 +60,13 @@
             <div class="row mb-2">
                 <div class="col align-self-center">
                     <div class="card mb-3">
-                        <div class="card-body">
-                            <h1 class="card-title">My Post Title</h1>
-                            <p class="card-text">
-                                This is a wider card with supporting text below as a natural lead-in to additional content.
-                                This content is a little bit longer.
-
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius magni, perferendis nemo accusamus fugiat atque error vero impedit quibusdam. Distinctio nostrum ex quod ipsum consequuntur corporis deserunt, architecto laudantium!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius magni, perferendis nemo accusamus fugiat atque error vero impedit quibusdam. Distinctio nostrum ex quod ipsum consequuntur corporis deserunt, architecto laudantium!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius magni, perferendis nemo accusamus fugiat atque error vero impedit quibusdam. Distinctio nostrum ex quod ipsum consequuntur corporis deserunt, architecto laudantium!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius magni, perferendis nemo accusamus fugiat atque error vero impedit quibusdam. Distinctio nostrum ex quod ipsum consequuntur corporis deserunt, architecto laudantium!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius magni, perferendis nemo accusamus fugiat atque error vero impedit quibusdam. Distinctio nostrum ex quod ipsum consequuntur corporis deserunt, architecto laudantium!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius magni, perferendis nemo accusamus fugiat atque error vero impedit quibusdam. Distinctio nostrum ex quod ipsum consequuntur corporis deserunt, architecto laudantium!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius magni, perferendis nemo accusamus fugiat atque error vero impedit quibusdam. Distinctio nostrum ex quod ipsum consequuntur corporis deserunt, architecto laudantium!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius magni, perferendis nemo accusamus fugiat atque error vero impedit quibusdam. Distinctio nostrum ex quod ipsum consequuntur corporis deserunt, architecto laudantium!
-
-
-                            </p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
+                        <?= $post; ?>
                     </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <a href="/posts" class="">Go Back Home</a>
                 </div>
             </div>
 
