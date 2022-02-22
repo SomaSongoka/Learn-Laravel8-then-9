@@ -8,6 +8,22 @@ use Illuminate\Support\Facades\File;
 class FilePosts
 {
 
+    /**
+     * @param $title
+     * @param $excerpt
+     * @param $date
+     * @param $body
+     */
+
+    public function __construct(public $title, public $excerpt, public $date,public $body,public $slug)
+    {
+        $this->title = $title;
+        $this->excerpt = $excerpt;
+        $this->date = $date;
+        $this->body = $body;
+        $this->slug = $slug;
+    }
+
     public static function all()
     {
         /**

@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Models\FilePosts;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,22 @@ use App\Models\FilePosts;
 
 Route::get('/', function () {
 
-    YamlFrontMatter::
+    $files = File::files(resource_path('posts'));
+    $posts = [];
+    foreach ($files as $file) {
+        $doc = YamlFrontMatter::parseFile($file);
+
+        //Call the Constructor
+        $posts[] = new FilePosts(
+            $doc->title,
+            $doc->excerpt,
+            $doc->date,
+            $doc->body(),
+            $doc->slug,
+        );
+    }
+
+//    dd($posts);
 
     // We need to get All Posts
     // $posts = FilePosts::all();
@@ -29,9 +46,9 @@ Route::get('/', function () {
 
     // dd($posts);
     // Return the view with variable post
-    // return view('posts', [
-    //     'posts' => $posts
-    // ]);
+     return view('posts', [
+         'posts' => $posts
+     ]);
 });
 
 
