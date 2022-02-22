@@ -27,19 +27,23 @@ class FilePosts
 
     public static function all()
     {
-        /**
-         * Reading files and content
-         */
-        return collect(File::files(resource_path('posts')))
-            ->map(fn($file) => YamlFrontMatter::parseFile($file))
-            ->map(fn($doc) => new FilePosts(
-                $doc->title,
-                $doc->excerpt,
-                $doc->date,
-                $doc->body(),
-                $doc->slug,
-            ))
-            ->sortByDesc('date');
+        // To avoid re-reading the files every time: we are going to cache the posts files
+        return cache()->rememberForever('posts.all', function () {
+            /**
+             * Reading files and content
+             */
+            return collect(File::files(resource_path('posts')))
+                ->map(fn($file) => YamlFrontMatter::parseFile($file))
+                ->map(fn($doc) => new FilePosts(
+                    $doc->title,
+                    $doc->excerpt,
+                    $doc->date,
+                    $doc->body(),
+                    $doc->slug,
+                ))
+                ->sortByDesc('date');
+        });
+
     }
 
 
