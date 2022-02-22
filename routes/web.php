@@ -15,8 +15,11 @@ use App\Models\FilePosts;
 */
 
 Route::get('/', function () {
+
+    YamlFrontMatter::
+
     // We need to get All Posts
-    $posts = FilePosts::all();
+    // $posts = FilePosts::all();
 
     // We need to get the first post
     /**
@@ -26,9 +29,9 @@ Route::get('/', function () {
 
     // dd($posts);
     // Return the view with variable post
-    return view('posts', [
-        'posts' => $posts
-    ]);
+    // return view('posts', [
+    //     'posts' => $posts
+    // ]);
 });
 
 
