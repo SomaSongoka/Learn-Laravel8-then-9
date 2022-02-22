@@ -53,9 +53,14 @@
     </nav>
 </div>
 
+<header>
+{{-- Yielding Multiple sections--}}
+@yield('banner')
+</header>
 
 <section class="blog-post">
     <div class="container mt-20">
+
         <div class="row mb-2">
             {{-- Load content using yiled--}}
             @yield('content')

@@ -22,6 +22,14 @@
     </div>
 @endsection
 
+{{--Section banner --}}
+@section('banner')
+    <div class="row">
+        <div class="col-12">
+            <h1>My Blog Post</h1>
+        </div>
+    </div>
+@endsection
 
 
     <!-- Optional JavaScript; choose one of the two! -->
