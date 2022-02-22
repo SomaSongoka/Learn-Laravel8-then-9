@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 class FilePosts
 {
@@ -27,25 +28,17 @@ class FilePosts
     public static function all()
     {
         /**
-         * Lets get all the posts
-         *
-         * We will have to read the file and return the content
-         * To read file we will have to use Laravel filesystem Facade
+         * Reading files and content
          */
-
-        // This way we will get all file parameter and methods
-        // return File::files(resource_path('posts/'));
-
-        // Ley's get file contents
-        $files = File::files(resource_path('posts/'));
-
-        /**
-         * We are looping through the files and generete new array which will have the values from the $file->getContents()
-         */
-        return array_map(function ($file) {
-            // Get the contents of the file
-            return $file->getContents(); // This will return the contents of the file
-        }, $files);
+        return collect(File::files(resource_path('posts')))
+            ->map(fn($file) => YamlFrontMatter::parseFile($file))
+            ->map(fn($doc) => new FilePosts(
+                $doc->title,
+                $doc->excerpt,
+                $doc->date,
+                $doc->body(),
+                $doc->slug,
+            ));
     }
 
 

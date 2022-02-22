@@ -66,7 +66,7 @@
             </div>
             <div class="row mt-5">
                 <div class="col-12">
-                    <a href="/posts" class="">Go Back Home</a>
+                    <a href="/" class="">Go Back Home</a>
                 </div>
             </div>
 

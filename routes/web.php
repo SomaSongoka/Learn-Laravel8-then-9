@@ -18,21 +18,8 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/', function () {
 
-    $posts = collect(File::files(resource_path('posts')))
-        ->map(fn($file) => YamlFrontMatter::parseFile($file))
-        ->map(fn($doc) => new FilePosts(
-            $doc->title,
-            $doc->excerpt,
-            $doc->date,
-            $doc->body(),
-            $doc->slug,
-        ));
-
-
-//    dd($posts);
-
     // We need to get All Posts
-    // $posts = FilePosts::all();
+     $posts = FilePosts::all();
 
     // We need to get the first post
     /**
