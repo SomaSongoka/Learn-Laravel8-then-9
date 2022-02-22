@@ -28,7 +28,7 @@ class FilePosts
     public static function all()
     {
         // To avoid re-reading the files every time: we are going to cache the posts files
-        return cache()->remember(now()->addMinutes(1),'posts.all', function () {
+        return cache()->remember('posts.all',now()->addMinutes(5), function () {
             /**
              * Reading files and content
              */

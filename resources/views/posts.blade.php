@@ -57,21 +57,21 @@
     <section class="blog-post">
         <div class="container mt-20">
             <div class="row mb-2">
-                <?php foreach ($posts as $post): ?>
-                <div class="col-md-4 col-sm-12 mb-5">
+                @foreach ($posts as $post)
+                <div class="col-md-4 col-sm-12 mb-5 {{ $loop->even ? 'foobar' : 'foo' }}">
                     <div class="card">
                         <div class="card-body">
-                            <a href="/posts/<?php echo $post->slug; ?>">
-                                <h1 class="card-title"><?= $post->title; ?></h1>
+                            <a href="/posts/{{$post->slug}}">
+                                <h1 class="card-title">{{ $post->title }} </h1>
                             </a>
-                            <?= $post->excerpt; ?>
+                            {{ $post->excerpt }}
                             <p class="card-text">
-                                <small class="text-muted">Last updated <?= $post->date; ?></small>
+                                <small class="text-muted">Last updated {{ $post->date }}</small>
                             </p>
                         </div>
                     </div>
                 </div>
-                <?php endforeach; ?>
+                @endforeach
             </div>
 
         </div>
