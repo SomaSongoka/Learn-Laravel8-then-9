@@ -60,7 +60,11 @@
             <div class="row mb-2">
                 <div class="col align-self-center">
                     <div class="card mb-3">
-                        <?= $post; ?>
+                        <h1 class="card-title"><?= $post->title; ?></h1>
+                        <?= $post->body; ?>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated <?= $post->date; ?></small>
+                        </p>
                     </div>
                 </div>
             </div>
