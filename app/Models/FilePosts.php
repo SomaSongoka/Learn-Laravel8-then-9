@@ -38,7 +38,8 @@ class FilePosts
                 $doc->date,
                 $doc->body(),
                 $doc->slug,
-            ));
+            ))
+            ->sortByDesc('date');
     }
 
 
