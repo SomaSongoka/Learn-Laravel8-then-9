@@ -18,10 +18,10 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/', function () {
 
-    $files = File::files(resource_path('posts'));
-
-    $posts = collect($files)->map(function ($file){
-        $doc = YamlFrontMatter::parseFile($file);
+    $posts = collect(File::files(resource_path('posts')))
+        ->map(function ($file){
+        return YamlFrontMatter::parseFile($file);
+        })->map(function($doc){
         //Call the Constructor
         return new FilePosts(
             $doc->title,
