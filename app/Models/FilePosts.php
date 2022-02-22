@@ -51,6 +51,25 @@ class FilePosts
     {
         //Find the post that matches the slug and return it
         return self::all()->firstWhere('slug', $slug);
+    }
 
+    /**
+     * @param $slug
+     * @return mixed
+     * @throws ModelNotFoundException
+     *
+     * We can call this when we want to find or fail if post doesn't exist
+     */
+    public static function getPostOrFail($slug)
+    {
+        //Find the post that matches the slug and return it
+        $posts = self::getPost($slug);
+
+        // Check if is null
+        if (is_null($posts)) {
+            throw new ModelNotFoundException;
+        }
+
+        return $posts;
     }
 }

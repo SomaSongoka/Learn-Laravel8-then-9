@@ -42,10 +42,8 @@ Route::get('posts/{path}', function ($slug) {
     /**
      * Here we can use Model FilePosts to find our post
      */
-    $post = FilePosts::getPost($slug);
-
     // Return the view with variable post
     return view('post', [
-        'post' => $post
+        'post' => FilePosts::getPostOrFail($slug)
     ]);
 })->where('path', '[A-Za-z0-9-_]+'); // also there are helpers like whereAlpaNumeric() , whereAlpha() , whereNumeric()
