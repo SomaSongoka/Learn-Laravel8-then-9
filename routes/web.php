@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Models\FilePosts;
@@ -34,7 +35,6 @@ Route::get('/', function () {
      ]);
 });
 
-
 /** Wildcard */
 Route::get('posts/{path}', function ($slug) {
 
@@ -47,3 +47,29 @@ Route::get('posts/{path}', function ($slug) {
         'post' => FilePosts::getPostOrFail($slug)
     ]);
 })->where('path', '[A-Za-z0-9-_]+'); // also there are helpers like whereAlpaNumeric() , whereAlpha() , whereNumeric()
+
+/***
+ * For Eloquent Reading
+ */
+Route::get('/home', function () {
+    //Get All the posts
+    $posts = Post::all();
+
+    // Return the view with variable post
+    return view('elo-posts', [
+        'posts' => $posts
+    ]);
+});
+
+/***
+ * For Eloquent Reading Signle Post
+ */
+Route::get('/mypost/{id}', function ($id) {
+    //Get All the posts
+    $post = Post::findOrFail($id);
+
+    // Return the view with variable post
+    return view('elo-post', [
+        'post' => $post
+    ]);
+});
