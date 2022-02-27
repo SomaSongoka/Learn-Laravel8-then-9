@@ -20,7 +20,7 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 Route::get('/', function () {
 
     // We need to get All Posts
-     $posts = FilePosts::all();
+    $posts = FilePosts::all();
 
     // We need to get the first post
     /**
@@ -30,9 +30,9 @@ Route::get('/', function () {
 
     // dd($posts);
     // Return the view with variable post
-     return view('posts', [
-         'posts' => $posts
-     ]);
+    return view('posts', [
+        'posts' => $posts
+    ]);
 });
 
 /** Wildcard */
@@ -63,10 +63,19 @@ Route::get('/home', function () {
 
 /***
  * For Eloquent Reading Signle Post
+ *
+ * This approach is call Route Model Binding
+ * NB: The wildcard has to much with the variable in our callback function [post] $post
+ *
+ * Now lets try to use slug to find post instead of id
+ * we will state /mypost/{post:slug}, function (Post $post) in background Laravel will do Post::where('slug', post)->firstOrFail() post being our wildcard we provided
+ *
+ * Another cool way if slug will forever be the identifier of the post is to declare it in the model
+ *
+ * Go to Post Model and Generate Method getRouteKeyName() then return 'slug' as the identifier
+ * -> And you will not have to write {post:slug} in your route it will be simply {post}
  */
-Route::get('/mypost/{id}', function ($id) {
-    //Get All the posts
-    $post = Post::findOrFail($id);
+Route::get('/mypost/{post:slug}', function (Post $post) {
 
     // Return the view with variable post
     return view('elo-post', [

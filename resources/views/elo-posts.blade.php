@@ -1,10 +1,10 @@
-{{-- Since we are using Balde components we should declaire the component slot--}}
+{{-- Since we are using Balde components we should declaire the component slot --}}
 
-{{--We can pass variable to our components as attribute eg--}}
+{{-- We can pass variable to our components as attribute eg --}}
 <?php $description = 'This is a description'; ?>
-<x-app title="This value will be assigned to variable title" description="{{$description}}">
+<x-app title="This value will be assigned to variable title" description="{{ $description }}">
 
-    {{--   Or we can declaire our variable as slot eg: our variable will be full_name --}}
+    {{-- Or we can declaire our variable as slot eg: our variable will be full_name --}}
     <x-slot name="full_name">
         John Doe
     </x-slot>
@@ -14,7 +14,7 @@
         <div class="col-md-4 col-sm-12 mb-5 {{ $loop->even ? 'foobar' : 'foo' }}">
             <div class="card">
                 <div class="card-body">
-                    <a href="/mypost/{{$post->id}}">
+                    <a href="/mypost/{{ $post->slug }}">
                         <h1 class="card-title">{{ $post->title }} </h1>
                     </a>
                     {{ $post->excerpt }}
@@ -26,9 +26,3 @@
         </div>
     @endforeach
 </x-app>
-
-
-
-
-
-

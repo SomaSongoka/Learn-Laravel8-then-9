@@ -32,4 +32,13 @@ class Post extends Model
     ];
 
     //But another way is to set the guarded to empty array  protected $guarded = []; and never sent user submitted form as array to Method create()
+
+    /**
+     * getRouteKeyName
+     *
+     * To be used in the route model binding.
+     */
+    public function getRouteKeyName(){
+        return 'slug';
+    }
 }
