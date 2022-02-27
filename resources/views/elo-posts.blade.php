@@ -17,6 +17,10 @@
                     <a href="/mypost/{{ $post->slug }}">
                         <h1 class="card-title">{{ $post->title }} </h1>
                     </a>
+
+                    <h6 class="card-title">Category: <a href="#">{{ $post->category->name }}</a> </h6>
+
+
                     {{ $post->excerpt }}
                     <p class="card-text">
                         <small class="text-muted">Last updated {{ $post->date }}</small>

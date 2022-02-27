@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    // Means mass assign is allowed for this model
+    protected $guarded = [];
 }
