@@ -18,7 +18,7 @@
                         <h1 class="card-title">{{ $post->title }} </h1>
                     </a>
 
-                    <h6 class="card-title">Category: <a href="#">{{ $post->category->name }}</a> </h6>
+                    <h6 class="card-title">Category: <a href="/category/{{ $post->category->slug }}">{{ $post->category->name }}</a> </h6>
 
 
                     {{ $post->excerpt }}

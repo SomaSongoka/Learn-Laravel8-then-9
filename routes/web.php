@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Owner;
 use App\Models\Post;
 use Illuminate\Support\Facades\File;
@@ -84,3 +85,16 @@ Route::get('/mypost/{post:slug}', function (Post $post) {
     ]);
 });
 
+/***
+ * Let's generate a new route for categories
+ * This route will show all post belongs to a category
+ *
+ * We will use Route Model Binding
+ */
+Route::get('/category/{category:slug}', function (Category $category) {
+    // Let's go to Model Category and create a new relationship called posts() which we will refer in this route using $category->posts()
+    // Return the view with variable post -- we will re-use the same view as the previous route
+    return view('elo-posts', [
+        'posts' => $category->posts
+    ]);
+});

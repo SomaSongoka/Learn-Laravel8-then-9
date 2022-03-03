@@ -11,4 +11,14 @@ class Category extends Model
 
     // Means mass assign is allowed for this model
     protected $guarded = [];
+
+    /**
+     * Get the posts for the category.
+     *
+     * This is a one-to-many relationship.
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
