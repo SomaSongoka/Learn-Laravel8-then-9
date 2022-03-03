@@ -83,7 +83,7 @@ Route::get('/home', function () {
         /**
          * So we can fix this problem which is caused by lazy loading default by laravel
          */
-        'posts' => Post::with('category')->get()
+        'posts' => Post::latest()->with('category')->get()
         //Remember once we use with we need to use the get() method to get the data
 
     ]);
