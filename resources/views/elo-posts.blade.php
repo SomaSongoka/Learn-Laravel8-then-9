@@ -23,7 +23,7 @@
                     </h6>
 
 
-                    {{ $post->excerpt }}
+                    {!! $post->excerpt !!}
                     <p class="card-text">
                         <small class="text-muted">Last updated {{ $post->date }}</small>
                     </p>

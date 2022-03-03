@@ -59,4 +59,9 @@ class Post extends Model
         // Post belongs to Category, in this case we are going to use belongsTo() method.
         return $this->belongsTo(Category::class);
     }
+
+    // Adding User relations
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

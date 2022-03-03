@@ -51,8 +51,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => $personal->id,
             'title' => 'My first post',
             'slug' => 'my-first-post',
-            'excerpt' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-            'body' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            'excerpt' => '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>',
+            'body' => "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
         ]);
 
         Post::create([
@@ -60,8 +60,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => $family->id,
             'title' => 'My second post',
             'slug' => 'my-second-post',
-            'excerpt' => 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
-            'body' => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            'excerpt' => '<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>',
+            'body' => "<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
         ]);
 
         Post::create([
@@ -69,8 +69,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => $family->id,
             'title' => 'My third post',
             'slug' => 'my-third-post',
-            'excerpt' => 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
-            'body' => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            'excerpt' => '<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>',
+            'body' => "<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
         ]);
 
         Post::create([
@@ -78,8 +78,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => $family->id,
             'title' => 'My fourth post',
             'slug' => 'my-fourth-post',
-            'excerpt' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-            'body' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            'excerpt' => '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>',
+            'body' => "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
         ]);
 
         Post::create([
@@ -87,8 +87,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => $personal->id,
             'title' => 'My fifth post',
             'slug' => 'my-fifth-post',
-            'excerpt' => 'Personal Blog is simply dummy text of the printing and typesetting industry.',
-            'body' => "Personal Blog is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            'excerpt' => '<p>Personal Blog is simply dummy text of the printing and typesetting industry.</p>',
+            'body' => "<p>Personal Blog is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
         ]);
 
         Post::create([
@@ -96,8 +96,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => $work->id,
             'title' => 'My sixth post',
             'slug' => 'my-sixth-post',
-            'excerpt' => 'Sixth Ipsum is simply post dummy text of the printing and typesetting industry.',
-            'body' => "Sixth Ipsum simple blog post dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            'excerpt' => '<p>Sixth Ipsum is simply post dummy text of the printing and typesetting industry.</p>',
+            'body' => "<p>Sixth Ipsum simple blog post dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
         ]);
     }
 }
