@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Category;
-use App\Models\Owner;
 use App\Models\Post;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
@@ -54,12 +53,39 @@ Route::get('posts/{path}', function ($slug) {
  * For Eloquent Reading
  */
 Route::get('/home', function () {
-    //Get All the posts
-    $posts = Post::all();
+    /**
+     * By Intoduction a $post->category->slug in the view we have created a what called n+1 problem
+     *
+     * Lets Log the DB for a all post page
+     * 1: load the DB facade
+     * 2: log the DB query
+     */
+    \Illuminate\Support\Facades\DB::listen(function ($query) {
+        //To log the query use the following code:  \Illuminate\Support\Facades\Log::info($query->sql);
+        // OR use logger
+        logger($query->sql); // To see The binding values just add logger($query->sql, $query->bindings);
+        // The logs can be found in storage/logs/laravel.log
+    });
+
+    /**
+     * But that way sometimes it can be tiresome, so let's use a tool called Laravel Clockwork
+     * https://github.com/itsgoingd/clockwork
+     * : Install composer require itsgoingd/clockwork
+     * : The add the browser extension
+     * : Now all the queries will be seen in the browser console
+     */
+
 
     // Return the view with variable post
     return view('elo-posts', [
-        'posts' => $posts
+        // Now The n+1 problem here is we are querying the posts the category for each of the post
+        //'posts' => Post::all()
+        /**
+         * So we can fix this problem which is caused by lazy loading default by laravel
+         */
+        'posts' => Post::with('category')->get()
+        //Remember once we use with we need to use the get() method to get the data
+
     ]);
 });
 
