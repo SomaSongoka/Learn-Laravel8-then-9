@@ -147,3 +147,36 @@ Route::get('/author/{user:username}', function (User $user) {
         'posts' => $user->posts
     ]);
 });
+
+/***
+ *
+ * Elo-Post Routes Duplicated for Blog
+ */
+
+// View All Posts
+Route::get('/blog', function () {
+    return view('blog-posts', [
+        'posts' => Post::latest()->with('author')->get()
+    ]);
+});
+
+// View Single Post
+Route::get('/blog/{post:slug}', function (Post $post) {
+    return view('blog-post', [
+        'post' => $post
+    ]);
+});
+
+// View Post category
+Route::get('/blog/category/{category:slug}', function (Category $category) {
+    return view('blog-posts', [
+        'posts' => $category->posts->load('author')
+    ]);
+});
+
+// View Author Posts
+Route::get('/blog/author/{user:username}', function (User $user) {
+    return view('blog-posts', [
+        'posts' => $user->posts
+    ]);
+});
