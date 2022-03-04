@@ -122,7 +122,7 @@ Route::get('/category/{category:slug}', function (Category $category) {
     // Let's go to Model Category and create a new relationship called posts() which we will refer in this route using $category->posts()
     // Return the view with variable post -- we will re-use the same view as the previous route
     return view('elo-posts', [
-        'posts' => $category->posts
+        'posts' => $category->posts->load('category','author')
     ]);
 });
 
@@ -130,13 +130,9 @@ Route::get('/category/{category:slug}', function (Category $category) {
  * Let's display the Author's post
  * We will use Route Model Binding
  */
-Route::get('/author/{username:username}', function (User $username) {
-    // Get User Id by username
-    $userId = $username->id;
-
-    // We are doing this to solve the n+1 problem
-    $posts = Post::latest()->with('category')->where('user_id', $userId)->get();
+Route::get('/author/{user:username}', function (User $user) {
+    // We can use load() to load the relationship in the view while avoiding n+1 problem
     return view('elo-posts', [
-        'posts' => $posts
+        'posts' => $user->posts->load('category')
     ]);
 });
