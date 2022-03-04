@@ -2,6 +2,7 @@
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Models\FilePosts;
@@ -83,7 +84,7 @@ Route::get('/home', function () {
         /**
          * So we can fix this problem which is caused by lazy loading default by laravel
          */
-        'posts' => Post::latest()->with('category')->get()
+        'posts' => Post::latest()->with('category','author')->get()
         //Remember once we use with we need to use the get() method to get the data
 
     ]);
@@ -122,5 +123,17 @@ Route::get('/category/{category:slug}', function (Category $category) {
     // Return the view with variable post -- we will re-use the same view as the previous route
     return view('elo-posts', [
         'posts' => $category->posts
+    ]);
+});
+
+/**
+ * Let's display the Author's post
+ * We will use Route Model Binding
+ */
+Route::get('/author/{user}', function ($user) {
+    // We are doing this to solve the n+1 problem
+    $posts = Post::latest()->with('category','author')->where('user_id', $user)->get();
+    return view('elo-posts', [
+        'posts' => $posts
     ]);
 });
