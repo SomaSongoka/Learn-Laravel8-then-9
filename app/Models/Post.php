@@ -33,6 +33,12 @@ class Post extends Model
 
     //But another way is to set the guarded to empty array  protected $guarded = []; and never sent user submitted form as array to Method create()
 
+    // We can load a relationship everything we do a query in this Model class by using $with
+    protected $with = [
+        // Once we do this we no longer have to refer the category inside ->load()
+        'category',
+    ];
+
     /**
      * getRouteKeyName
      *

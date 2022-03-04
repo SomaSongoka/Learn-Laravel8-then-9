@@ -84,8 +84,19 @@ Route::get('/home', function () {
         /**
          * So we can fix this problem which is caused by lazy loading default by laravel
          */
-        'posts' => Post::latest()->with('category','author')->get()
+        'posts' => Post::latest()->with('author')->get()
         //Remember once we use with we need to use the get() method to get the data
+
+        // Since we have eager loaded the category we no longer have to refer it, but the problem is now  everytime we
+        // load the Post the whole categeory will be loaded by default, so if we load author we will end up with a lot of data
+        // we are not using or need
+
+        /**
+         * To escape this we can always say
+         * ***** Post::latest()->without('category')->get()
+         * OR
+         * ***** Post::latest()->without(['category','author'])->get()
+         */
 
     ]);
 });
@@ -122,7 +133,7 @@ Route::get('/category/{category:slug}', function (Category $category) {
     // Let's go to Model Category and create a new relationship called posts() which we will refer in this route using $category->posts()
     // Return the view with variable post -- we will re-use the same view as the previous route
     return view('elo-posts', [
-        'posts' => $category->posts->load('category','author')
+        'posts' => $category->posts->load('author')
     ]);
 });
 
@@ -133,6 +144,6 @@ Route::get('/category/{category:slug}', function (Category $category) {
 Route::get('/author/{user:username}', function (User $user) {
     // We can use load() to load the relationship in the view while avoiding n+1 problem
     return view('elo-posts', [
-        'posts' => $user->posts->load('category')
+        'posts' => $user->posts
     ]);
 });
