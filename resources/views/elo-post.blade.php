@@ -8,7 +8,7 @@
             <div class="card mb-3">
                 <h1 class="card-title">{{ $post->title }}</h1>
                 <h6 class="card-title">
-                    By <a href="/author/{{$post->author->id}}">{{$post->author->name}}</a> in <a href="/category/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+                    By <a href="/author/{{$post->author->username}}">{{$post->author->name}}</a> in <a href="/category/{{ $post->category->slug }}">{{ $post->category->name }}</a>
                 </h6>
 
                 {!! $post->body !!}

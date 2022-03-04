@@ -130,9 +130,12 @@ Route::get('/category/{category:slug}', function (Category $category) {
  * Let's display the Author's post
  * We will use Route Model Binding
  */
-Route::get('/author/{user}', function ($user) {
+Route::get('/author/{username:username}', function (User $username) {
+    // Get User Id by username
+    $userId = $username->id;
+
     // We are doing this to solve the n+1 problem
-    $posts = Post::latest()->with('category','author')->where('user_id', $user)->get();
+    $posts = Post::latest()->with('category')->where('user_id', $userId)->get();
     return view('elo-posts', [
         'posts' => $posts
     ]);
