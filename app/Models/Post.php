@@ -10,12 +10,11 @@ class Post extends Model
     use HasFactory;
 
     /**
-     * Fillable
+     * Fill able
      *
-     * This is the array of fillable columns that can be mass assignable.
+     * This is the array of fill able columns that can be mass assignable.
      * In this list we have excluded id and created_at and updated_at columns.
      * Means those can not be mass assigned.
-     *
      *
      */
     protected $fillable = [
@@ -24,7 +23,7 @@ class Post extends Model
         'body',
     ];
 
-    // Guarded is the opposite of fillable. = Means everything is fillable expect these
+    // Guarded is the opposite of fill able. = Means everything is fill able expect these
     protected $guarded = [
         'id',
         'created_at',
@@ -72,7 +71,7 @@ class Post extends Model
      * Now we want our relationship to be Post->author instead of now Post->user.
      *
      * Note that Laravel bu default assumes user means the foreign key must be user_id
-     * so when we change to author we have to change the foreign key to author_id or pass additional parameter to the method callbaack
+     * so when we change to author we have to change the foreign key to author_id or pass additional parameter to the method callback
      */
     public function author(){
         return $this->belongsTo(User::class,'user_id');
