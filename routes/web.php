@@ -156,7 +156,8 @@ Route::get('/author/{user:username}', function (User $user) {
 // View All Posts
 Route::get('/blog', function () {
     return view('blog-posts', [
-        'posts' => Post::latest()->with('author')->get()
+        'posts' => Post::latest()->with('author')->get(),
+        'categories' => Category::all()
     ]);
 });
 
