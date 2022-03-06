@@ -1,53 +1,57 @@
-{{-- Extend the Layout --}}
-@extends('components.layout')
+<x-layout>
 
-{{-- Declare the section --}}
-@section('content')
-    <div class="row mb-2">
-        <div class="col align-self-center">
-            <div class="card mb-3">
-                <h1 class="card-title">{{ $post->title }}</h1>
-                <h6 class="card-title">
-                    By <a href="/blog/author/{{$post->author->username}}">{{$post->author->name}}</a> in <a href="/blog/category/{{ $post->category->slug }}">{{ $post->category->name }}</a>
-                </h6>
+@include('_posts-header')
 
-                {!! $post->body !!}
-                <p class="card-text">
-                    <small class="text-muted">Last updated {{ $post->date }}</small>
-                </p>
+<main class="max-w-6xl mx-auto mt-10 lg:mt-20 space-y-6">
+    <article class="max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10">
+        <div class="col-span-4 lg:text-center lg:pt-14 mb-10">
+            <img src="/images/illustration-1.png" alt="" class="rounded-xl">
+
+            <p class="mt-4 block text-gray-400 text-xs">
+                Published <time>{{ $post->created_at->diffForHumans() }}</time>
+            </p>
+
+            <div class="flex items-center lg:justify-center text-sm mt-4">
+                <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                <div class="ml-3 text-left">
+                    <h5 class="font-bold">{{ $post->author->name }}</h5>
+                    <h6>Mascot at Laracasts</h6>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-12">
-            <a href="/blog" class="">Go Back Home</a>
+
+        <div class="col-span-8">
+            <div class="hidden lg:flex justify-between mb-6">
+                <a href="/blog"
+                   class="transition-colors duration-300 relative inline-flex items-center text-lg hover:text-blue-500">
+                    <svg width="22" height="22" viewBox="0 0 22 22" class="mr-2">
+                        <g fill="none" fill-rule="evenodd">
+                            <path stroke="#000" stroke-opacity=".012" stroke-width=".5" d="M21 1v20.16H.84V1z">
+                            </path>
+                            <path class="fill-current"
+                                  d="M13.854 7.224l-3.847 3.856 3.847 3.856-1.184 1.184-5.04-5.04 5.04-5.04z">
+                            </path>
+                        </g>
+                    </svg>
+
+                    Back to Posts
+                </a>
+
+                <div class="space-x-2">
+                    <x-category-button :category="$post->category" />
+
+                </div>
+            </div>
+
+            <h1 class="font-bold text-3xl lg:text-4xl mb-10">
+                {{ $post->title }}
+            </h1>
+
+            <div class="space-y-4 lg:text-lg leading-loose">
+                {{ $post->body }}
+            </div>
         </div>
-    </div>
-@endsection
+    </article>
+</main>
 
-{{-- Section banner --}}
-@section('banner')
-    <div class="row">
-        <div class="col-12">
-            <h1>My Blog Post</h1>
-        </div>
-    </div>
-@endsection
-
-
-<!-- Optional JavaScript; choose one of the two! -->
-
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-<!-- Option 2: Separate Popper and Bootstrap JS -->
-<!--
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
--->
-</body>
-
-</html>
+</x-layout>
