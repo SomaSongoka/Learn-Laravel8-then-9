@@ -31,14 +31,18 @@
                 </x-slot>
 
             {{-- Links --}}
-{{--                {{ isset($currentCategory) && $currentCategory->is($category) ? 'bg-blue-300 text-white' : '' }}--}}
-                <a href="/blog" class="block text-left px-3 text-sm leading-6 hover:bg-blue-300 focus:bg-blue-300 hover:text-white focus:text-white">
-                    All Posts
-                </a>
-                <x-dropdown-item href="/blog">All</x-dropdown-item>
+                {{-- We can use routeIs to check if route name matches | this will match the named route name--}}
+                <x-dropdown-item href="/blog" :active="request->routeIs('home')">All</x-dropdown-item>
                 @if($categories->count())
                     @foreach($categories as $category)
-                        <x-dropdown-item :active="isset($currentCategory) && $currentCategory->is($category)" href="/blog/category/{{ $category->slug }}">{{ ucwords($category->name) }}</x-dropdown-item>
+                        <x-dropdown-item
+                            :active="isset($currentCategory) && $currentCategory->is($category)"
+                            href="/blog/category/{{ $category->slug }}"
+                        >
+                            {{ ucwords($category->name) }}
+                        </x-dropdown-item>
+                        {{-- Another way to check if is active is by compairing the URL using request() collection --}}
+{{--                         <x-dropdown-item href="/blog/category/{{ $category->slug }}" :active="request()->is('blog/category/'.$category->slug)">{{ ucwords($category->name) }}</x-dropdown-item>--}}
                     @endforeach
                 @endif
 
