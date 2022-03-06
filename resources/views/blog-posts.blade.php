@@ -35,19 +35,25 @@
 
 <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
     {{-- Now we can load our post-featured-card component --}}
+    @if($posts->count())
+
     <x-post-featured-card :post="$posts[0]" />
 
     <div class="lg:grid lg:grid-cols-2">
-        {{-- load our post-card component twice --}}
-        <x-post-card />
-        <x-post-card />
+        @if($posts->count() > 1)
+            {{-- load our post-card component twice --}}
+            @foreach ($posts->skip(1) as $post)
+                <x-post-card :post="$post" />
+            @endforeach
+        @endif
     </div>
+    @endif
 
     <div class="lg:grid lg:grid-cols-3">
         {{-- load our post-card component 3 times --}}
-        <x-post-card />
-        <x-post-card />
-        <x-post-card />
+{{--        <x-post-card />--}}
+{{--        <x-post-card />--}}
+{{--        <x-post-card />--}}
         {{-- Now we can load our post-card component --}}
     </div>
 </main>
