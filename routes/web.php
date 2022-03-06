@@ -159,7 +159,7 @@ Route::get('/blog', function () {
         'posts' => Post::latest()->with('author')->get(),
         'categories' => Category::all()
     ]);
-});
+})->name('home');
 
 // View Single Post
 Route::get('/blog/{post:slug}', function (Post $post) {
@@ -175,7 +175,7 @@ Route::get('/blog/category/{category:slug}', function (Category $category) {
         'currentCategory' => $category,
         'categories' => Category::all()
     ]);
-});
+})->name('blog-category');
 
 // View Author Posts
 Route::get('/blog/author/{user:username}', function (User $user) {

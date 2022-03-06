@@ -32,7 +32,7 @@
 
             {{-- Links --}}
                 {{-- We can use routeIs to check if route name matches | this will match the named route name--}}
-                <x-dropdown-item href="/blog" :active="request->routeIs('home')">All</x-dropdown-item>
+                <x-dropdown-item href="/blog" :active="request()->routeIs('home')">All</x-dropdown-item>
                 @if($categories->count())
                     @foreach($categories as $category)
                         <x-dropdown-item
