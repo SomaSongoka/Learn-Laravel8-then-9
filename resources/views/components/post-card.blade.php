@@ -1,7 +1,11 @@
 @props(['post'])
 
+{{-- The attrubutes we bassed in our componet from the layout can be accessed via $attributes->The_name --}}
+
+{{-- In this case our attribute class can be accessed as $attributes->class --}}
+{{-- Since we are using blade component, we can merge the esisting attributes (in this case all) by simply--}}
 <article
-    class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
+    {{$attributes->merge(['class' => 'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl'])}}>
     <div class="py-6 px-5">
         <div>
             <img src="./images/illustration-3.png" alt="Blog Post illustration" class="rounded-xl">

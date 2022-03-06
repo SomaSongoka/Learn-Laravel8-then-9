@@ -39,11 +39,11 @@
 
     <x-post-featured-card :post="$posts[0]" />
 
-    <div class="lg:grid lg:grid-cols-2">
+    <div class="lg:grid lg:grid-cols-6">
         @if($posts->count() > 1)
             {{-- load our post-card component twice --}}
             @foreach ($posts->skip(1) as $post)
-                <x-post-card :post="$post" />
+                <x-post-card :post="$post" class="col-span-2" />
             @endforeach
         @endif
     </div>
