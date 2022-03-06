@@ -171,13 +171,16 @@ Route::get('/blog/{post:slug}', function (Post $post) {
 // View Post category
 Route::get('/blog/category/{category:slug}', function (Category $category) {
     return view('blog-posts', [
-        'posts' => $category->posts->load('author')
+        'posts' => $category->posts->load('author'),
+        'currentCategory' => $category,
+        'categories' => Category::all()
     ]);
 });
 
 // View Author Posts
 Route::get('/blog/author/{user:username}', function (User $user) {
     return view('blog-posts', [
-        'posts' => $user->posts
+        'posts' => $user->posts,
+        'categories' => Category::all()
     ]);
 });
