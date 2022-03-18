@@ -76,4 +76,20 @@ class Post extends Model
     public function author(){
         return $this->belongsTo(User::class,'user_id');
     }
+
+    /**
+     * Query Scope is defined by the method name. scope[scopename]
+     * Eg: scopePublished() will  be reffered as Post::newQuery()->published()
+     * - our scope will receive the query object as first parameter
+     *
+     */
+    public function scopeFilter($query,array $filters)
+    {
+        // PHP 8 way of handling nullable values if(isset($filters['search'])) php 7.x way of handling nullable values
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . $filters['search'] . '%')
+                ->orWhere('body', 'like', '%' . $filters['search'] . '%'); // Check on Title and Body
+            // The above code can be $posts->where('title', 'like', '%' . request('search') . '%');
+        }
+    }
 }

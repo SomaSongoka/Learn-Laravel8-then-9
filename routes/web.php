@@ -161,11 +161,7 @@ Route::get('/author/{user:username}', function (User $user) {
 Route::get('/blog', [\App\Http\Controllers\PostController::class, 'index'])->name('home');
 
 // View Single Post
-Route::get('/blog/{post:slug}', function (Post $post) {
-    return view('blog-post', [
-        'post' => $post
-    ]);
-});
+Route::get('/blog/{post:slug}',[PostController::class, 'show']);
 
 // View Post category
 Route::get('/blog/category/{category:slug}', function (Category $category) {
