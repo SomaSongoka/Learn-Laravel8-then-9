@@ -87,11 +87,12 @@ class Post extends Model
     {
         // We can also use when query builder,
         // WHEN == execute only when the condition is true
-        $query->when($filters['search'] ?? false, function ($query, $search) {
+        //Using PHP 8 we can switch this function to arrow function
+        $query->when($filters['search'] ?? false, fn ($query, $search) =>
             $query
                 ->where('title', 'like', "%{$search}%")
-                ->orWhere('body', 'like', "%{$search}%");
-        });
+                ->orWhere('body', 'like', "%{$search}%"));
+
         /*
         // PHP 8 way of handling nullable values if(isset($filters['search'])) php 7.x way of handling nullable values
         if ($filters['search'] ?? false) {
