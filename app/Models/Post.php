@@ -113,11 +113,20 @@ class Post extends Model
              *      EXISTS(
              *              SELECT*FROM categories
              *                  WHERE categories.id=posts.category_id AND categories.slug="ut-sit-culpa-mollitia")
-             */
+
             $query->whereExists(fn ($query) =>
                 $query->from('categories')
                     ->whereColumn('categories.id', '=', 'posts.category_id') // whereColumn('categories.id',  'posts.category_id')
                     // ->whereRaw('categories.id=posts.category_id') Optional
                     ->where('categories.slug', $category)));
+             */
+
+            // Using whereHas
+            /**
+             * Since we are already add Relationship between Post and Category using belongsTo() method under  category() method
+             * We can utilise the whereHas() method to check if the post belongs to the category
+             */
+            $query->whereHas('category', fn ($query) =>
+                $query->where('slug', $category)));
     }
 }
