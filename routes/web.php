@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostController;
+
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -154,26 +156,9 @@ Route::get('/author/{user:username}', function (User $user) {
  */
 
 // View All Posts
-Route::get('/blog', function () {
-
-    //Search The Messy Way
-    //1: Instead of Post::latest()->with('author')->get() {Get = execute the bilded query} we can do this
-    $posts = Post::latest()->with('author');
-    //2: Then let's check if request()->has('search') or you can write if(request('search')) | search is our GET request [name=search]
-    if (request()->has('search')) {
-        //3: If we have search then we will use the where() method to search the title
-
-        //NB: This will be executed only if the request has search. Here we now join the query building by adding the where clause
-        $posts->where('title', 'like', '%' . request()->get('search') . '%')
-            ->orWhere('body', 'like', '%' . request('search') . '%'); // Check on Title and Body
-        // The above code can be $posts->where('title', 'like', '%' . request('search') . '%');
-    }
-
-    return view('blog-posts', [
-        'posts' => $posts->get(), //Post::latest()->with('author')->get(),
-        'categories' => Category::all()
-    ]);
-})->name('home');
+// NB: Now we search using controller, pass the controller path [\App\Http\Controllers\PostController] or set the controller path at the top of the file
+// use App\Http\Controllers\PostController;
+Route::get('/blog', [\App\Http\Controllers\PostController::class, 'index'])->name('home');
 
 // View Single Post
 Route::get('/blog/{post:slug}', function (Post $post) {
