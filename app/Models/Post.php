@@ -101,5 +101,23 @@ class Post extends Model
             // The above code can be $posts->where('title', 'like', '%' . request('search') . '%');
         }
         */
+
+        // In case we wish to find category using GET request we can utilise same approach
+        $query->when($filters['category'] ?? false, fn ($query, $category) =>
+            //But remember category is passed as slag and we do not have slug in Post table
+            // So we need to check the slug via the category table
+            // Now thre is several ways to do this, inner join etc but for now let's look at exist
+            /**
+             * Using Exist
+             * SELECT * FROM posts WHERE
+             *      EXISTS(
+             *              SELECT*FROM categories
+             *                  WHERE categories.id=posts.category_id AND categories.slug="ut-sit-culpa-mollitia")
+             */
+            $query->whereExists(fn ($query) =>
+                $query->from('categories')
+                    ->whereColumn('categories.id', '=', 'posts.category_id') // whereColumn('categories.id',  'posts.category_id')
+                    // ->whereRaw('categories.id=posts.category_id') Optional
+                    ->where('categories.slug', $category)));
     }
 }

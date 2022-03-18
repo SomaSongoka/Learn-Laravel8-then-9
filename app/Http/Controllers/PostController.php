@@ -31,7 +31,7 @@ class PostController extends Controller
          * 2: We will use the scope method to create a scope
          */
         return view('blog-posts', [
-            'posts' => Post::latest()->with('author')->filter(request()->only('search'))->get(), //filter() is a QueryScope we created in Post model
+            'posts' => Post::latest()->with('author')->filter(request(['search','category']))->get(), //filter() is a QueryScope we created in Post model
             'categories' => Category::all()
         ]);
 
